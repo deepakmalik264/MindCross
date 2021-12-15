@@ -1,5 +1,6 @@
 import React from 'react'
 import "./body.css"
+import {AiFillPlayCircle} from 'react-icons/ai'
 export default function body() {
     return (
         <div>
@@ -16,16 +17,17 @@ export default function body() {
                    
                 <div class="index-intro">
                    <h1 className = "index-title">
-                       <span>Play Mind Cross</span>
+                       <span>Play Mind-Cross</span>
                        <span> for free</span>
-                       <span> on the </span>
+                       
                    </h1>
 
 
 
                 </div>
                 <div className="parent-play-btn">
-                    <button className="play-btn">Let's Play'</button>
+                
+                <a href="/game">   <button className="play-btn">▶️ Let's Play'</button> </a>
                 </div>
                
 

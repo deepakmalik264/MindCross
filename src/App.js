@@ -25,7 +25,7 @@ export default function App() {
      
       <Footer />
       
-      <PlayerMoveContextProvider>
+      <PlayerMoveContextProvider id="game">
       <main className="bg">
         <h1>Board Game</h1>
         <div className="flex_row">
