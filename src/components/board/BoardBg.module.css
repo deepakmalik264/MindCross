@@ -21,6 +21,14 @@
   border: 1px solid black;
 }
 
+.block_color_light {
+  background-color: #eeeed2;
+}
+
+.block_color_dark {
+  background-color: #88ad62;
+}
+
 .img_rot {
   transform: rotate(90deg);
   -ms-transform: rotate(90deg);

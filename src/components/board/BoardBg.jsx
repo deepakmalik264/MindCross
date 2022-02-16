@@ -9,11 +9,11 @@ const BoardBg = () => {
   ];
 
   const imageClassname = (id) => {
-    if (id % 2 === 0) {
-      return styles.img_rot;
-    } else {
-      return "";
-    }
+    return id % 2 === 0 ? styles.img_rot : "";
+  };
+
+  const cellColorClassname = (id) => {
+    return id % 2 === 0 ? styles.block_color_light : styles.block_color_dark;
   };
 
   return (
@@ -23,7 +23,10 @@ const BoardBg = () => {
           <div className={styles.row} key={i}>
             {row.map((cell, j) => {
               return (
-                <div className={styles.cell} key={j}>
+                <div
+                  className={`${styles.cell} ${cellColorClassname(i + j)}`}
+                  key={j}
+                >
                   <img
                     src="/line.png"
                     alt="bg-line"

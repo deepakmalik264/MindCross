@@ -6,10 +6,12 @@ export default function body() {
         <div>
 
             <div className="main-body">
-               <div> 
+               <div className="board-img"> 
                  <img 
-                 src ="/Images/board_image.JPG"
+                 src ="/Images/boardimage.JPG"
                  alt = "board_image" 
+                 width={500}
+                height={500}
                  />
                </div>
 
