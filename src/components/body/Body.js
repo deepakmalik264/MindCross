@@ -17,7 +17,7 @@ export default function body() {
 
                <div className="main-side">
                    
-                <div class="index-intro">
+                <div className="index-intro">
                    <h1 className = "index-title">
                        <span>Play Mind-Cross</span>
                        <span> for free</span>

@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import PlayerMoveContext from "../../store/player-move-context";
 import { matrixUpdate } from "../../game/matrix-update";
 import styles from "./BoardPieces.module.css";
+import { isMoveValid } from "../../game/move-validation";
 
 const BoardPieces = () => {
   const { addMove } = useContext(PlayerMoveContext);
@@ -37,13 +38,14 @@ const BoardPieces = () => {
   }, [addMove, dest, playerTurn, step, surc]);
 
   const handleMove = (player, coords) => {
-    if (player === playerTurn) {
-      if (step === 1) {
+    if (step === 1) {
+      if (player === playerTurn) {
         setSurc(coords);
         setStep(2);
       }
-    }
-    if (step === 2) {
+    } else if (step === 2 && pieces[coords[0]][coords[1]] === playerTurn) {
+      setSurc(coords);
+    } else if (step === 2 && isMoveValid(playerTurn, surc, coords, pieces)) {
       setDest(coords);
       setStep(3);
     }
