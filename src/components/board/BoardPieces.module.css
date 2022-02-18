@@ -28,6 +28,10 @@
   place-items: center;
 }
 
+.source {
+  background-color: black;
+}
+
 .piece .piece_container span {
   height: 30px;
   width: 30px;

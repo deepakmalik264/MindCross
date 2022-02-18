@@ -4,6 +4,21 @@ import { matrixUpdate } from "../../game/matrix-update";
 import styles from "./BoardPieces.module.css";
 import { isMoveValid } from "../../game/move-validation";
 
+const playerPieceClassname = (player) => {
+  if (player === 1) {
+    return styles.player1;
+  } else if (player === 2) {
+    return styles.player2;
+  }
+};
+
+const sourceClassname = (surc, i, j) => {
+  if (surc[0] === i && surc[1] === j) {
+    return `${styles.piece_container} ${styles.source}`;
+  }
+  return `${styles.piece_container}`;
+};
+
 const BoardPieces = () => {
   const { addMove } = useContext(PlayerMoveContext);
   const [surc, setSurc] = useState([-1, -1]);
@@ -17,14 +32,6 @@ const BoardPieces = () => {
     [2, 2, 2, 2, 2],
     [2, 2, 2, 2, 2],
   ]);
-
-  const playerPieceClassname = (player) => {
-    if (player === 1) {
-      return styles.player1;
-    } else if (player === 2) {
-      return styles.player2;
-    }
-  };
 
   useEffect(() => {
     if (step === 3) {
@@ -60,7 +67,7 @@ const BoardPieces = () => {
               return (
                 <div className={styles.piece} key={j}>
                   <div
-                    className={styles.piece_container}
+                    className={sourceClassname(surc, i, j)}
                     onClick={() => handleMove(piece, [i, j])}
                   >
                     {piece !== 0 ? (
@@ -80,3 +87,4 @@ const BoardPieces = () => {
 };
 
 export default BoardPieces;
+                    
