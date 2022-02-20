@@ -15,115 +15,12 @@ export const isMoveValid = (player, surc, dest, mat) => {
   }
 
   if (player === 1) {
-    // if all pieces of player 1 are moveable or not
-    let ismove = false;
-    for (let i = 0; i < 5; i++) {
-      let flag = false;
-      for (let j = 0; j < 5; j++) {
-              
-          // if current pieces is he moveable
-              let res = isCurrentPieceMoveable(player,i,j,mat);
-              if(res) {
-                flag = true;
-                ismove = true;
-                break;
-              }
-  
-      }
-      if(flag) break;
-    }
-    if(ismove){
-         return isMoveValidP1(surc, dest, mat);
-    }else return false; 
+    return isMoveValidP1(surc, dest, mat);
   } else if (player === 2) {
-
-    let ismove = false;
-    for (let i = 0; i < 5; i++) {
-      let flag = false;
-      for (let j = 0; j < 5; j++) {
-              
-          // if current pieces is he moveable
-              let res = isCurrentPieceMoveable(player,i,j,mat);
-              if(res) {
-                ismove = true;
-                flag = true;
-                break;
-                
-              }
-  
-      }
-      if(flag) break;
-    }
-    if(ismove){
-         return isMoveValidP2(surc, dest, mat);
-    }else return false;
+    return isMoveValidP2(surc, dest, mat);
   }
 
   return false;
-};
-
-const isCurrentPieceMoveable = (player, i, j, mat) => {
-  let current_x = i;
-  let current_y = j;
-  let pos = current_x + current_y;
-
-  if (player === 1) {
-    if (pos % 2 == 0) {
-      if (isMoveValid(player,[i,j],[i+1,j+1],mat)&&mat[current_x + 1][current_y + 1] === 0) {
-        return true;
-      } else if (isMoveValid(player,[i,j],[i+1,j+1],mat)&&mat[current_x + 1][current_y + 1] === 2) {
-        if (isMoveValid(player,[i,j],[i+2,j+2],mat)&&mat[current_x + 2][current_y + 2] == 0) {
-          return true;
-        } else return false;
-      } else if (isMoveValid(player,[i,j],[i+1,j],mat)&&mat[current_x + 1][current_y] == 0) {
-        return true;
-      } else if (isMoveValid(player,[i,j],[i+1,j],mat)&&mat[current_x + 1][current_y] == 2) {
-        if (isMoveValid(player,[i,j],[i+2,j],mat)&&(mat[current_x + 2][current_y] = 0)) return true;
-      } else if (isMoveValid(player,[i,j],[i-1,j-1],mat)&&mat[current_x - 1][current_y - 1] === 0) {
-        return true;
-      } else if (isMoveValid(player,[i,j],[i-1,j-1],mat)&&mat[current_x - 1][current_y - 1] == 2) {
-        if (isMoveValid(player,[i,j],[i-2,j-2],mat)&&mat[current_x - 2][current_y - 2] == 0) {
-          return true;
-        } else return false;
-      } else return false;
-      // forward
-    } else {
-      if (isMoveValid(player,[i,j],[i+1,j],mat)&&mat[current_x + 1][current_y] == 0) {
-        return true;
-      } else if (isMoveValid(player,[i,j],[i+1,j],mat)&&mat[current_x + 1][current_y] == 2) {
-        if (isMoveValid(player,[i,j],[i+2,j],mat)&&(mat[current_x + 2][current_y] = 0)) return true;
-      } else return false;
-    }
-  }
-
-  if (player === 2) {
-    if (pos % 2 == 0) {
-      
-      if (isMoveValid(player,[i,j],[i-1,j-1],mat)&&mat[current_x - 1][current_y - 1] === 0) {
-        return true;
-      } else if (isMoveValid(player,[i,j],[i-1,j-1],mat)&&mat[current_x - 1][current_y - 1] === 1) {
-        if (isMoveValid(player,[i,j],[i-2,j-2],mat)&&mat[current_x - 2][current_y - 2] == 0) {
-          return true;
-        } else return false;
-      } else if (isMoveValid(player,[i,j],[i-1,j],mat)&&mat[current_x - 1][current_y] == 0) {
-        return true;
-      } else if (isMoveValid(player,[i,j],[i-1,j],mat)&&mat[current_x - 1][current_y] == 1) {
-        if (isMoveValid(player,[i,j],[i+2,j],mat)&&(mat[current_x + 2][current_y] = 0)) return true;
-      } else if (isMoveValid(player,[i,j],[i+1,j+1],mat)&&mat[current_x + 1][current_y + 1] === 0) {
-        return true;
-      } else if (isMoveValid(player,[i,j],[i+1,j+1],mat)&&mat[current_x + 1][current_y + 1] == 1) {
-        if (isMoveValid(player,[i,j],[i+2,j+2],mat)&&mat[current_x + 2][current_y + 2] == 0) {
-          return true;
-        } else return false;
-      } else return false;
-    } else {
-      if (isMoveValid(player,[i,j],[i-1,j],mat)&&mat[current_x - 1][current_y] == 0) {
-        return true;
-      } else if (isMoveValid(player,[i,j],[i-1,j],mat)&&mat[current_x - 1][current_y] == 1) {
-        if (isMoveValid(player,[i,j],[i-2,j],mat)&&(mat[current_x - 2][current_y] = 0)) return true;
-      } else return false;
-    }
-  }
 };
 
 const isMoveValidP1 = (surc, dest, mat) => {

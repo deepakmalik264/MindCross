@@ -26,10 +26,15 @@
   z-index: 100;
   display: grid;
   place-items: center;
+  cursor: pointer;
 }
 
 .source {
   background-color: black;
+}
+
+.possible_dest {
+  background-color: yellow;
 }
 
 .piece .piece_container span {

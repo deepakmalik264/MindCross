@@ -7,6 +7,7 @@ import BoardBg from "./components/board/BoardBg";
 import BoardPieces from "./components/board/BoardPieces";
 import MoveHistory from "./components/board/MoveHistory";
 import { PlayerMoveContextProvider } from "./store/player-move-context";
+import BoardSubheader from './components/board/BoardSubHeader';
 export default function App() {
   return (
     <div>
@@ -28,6 +29,7 @@ export default function App() {
       <PlayerMoveContextProvider id="game">
       <main className="bg">
         <h1>Board Game</h1>
+        <BoardSubheader></BoardSubheader>
         <div className="flex_row">
           <div className="board">
             <BoardPieces />
